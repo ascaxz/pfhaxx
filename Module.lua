@@ -38,6 +38,13 @@ function CumHaxx:IsPlayerAlive(Player)
         end
     end
 end
+function CumHaxx:GetGameLogic()
+    for I,V in pairs(getgc()) do
+        if type(V) == "table" and rawget(V, "currentgun") then
+            return V
+        end
+    end
+end
 function CumHaxx:Console(Text, PlaySound)
     if PlaySound == nil then PlaySound = false end
     local Misc = game:GetService("ReplicatedStorage").Misc
