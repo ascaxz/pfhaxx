@@ -14,6 +14,27 @@ function CumHaxx:GetNetwork()
         end
     end
 end
+function CumHaxx:GetCamera()
+    for I,V in pairs(getgc()) do
+        if type(V) == "table" and rawget(V, "shake") then
+            return V
+        end
+    end
+end
+function CumHaxx:GetCharacter(Player)
+    for I,V in pairs(getgc()) do
+        if type(V) == "table" and rawget(V, "getbodyparts") then
+            return V.getbodyparts(Player)
+        end
+    end
+end
+function CumHaxx:IsPlayerAlive(Player)
+    for I,V in pairs(getgc()) do
+        if type(V) == "table" and rawget(V, "isplayeralive") then
+            return V:isplayeralive(Player)
+        end
+    end
+end
 function CumHaxx:Console(Text, PlaySound)
     if PlaySound == nil then PlaySound = false end
     local Misc = game:GetService("ReplicatedStorage").Misc
