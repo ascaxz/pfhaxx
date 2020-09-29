@@ -38,6 +38,18 @@ function CumHaxx:GetCharacter()
         end
     end
 end
+function CumHaxx:ChangeWalkSpeed(WalkSpeed)
+    local E
+    for I,V in pairs(getgc()) do
+        if type(V) == "table" and rawget(V, "setbasewalkspeed") then
+            E = V
+            break
+        end
+    end
+    game:GetService("RunService").Heartbeat:Connect(function()
+        E:setbasewalkspeed(WalkSpeed)
+    end)
+end
 function CumHaxx:IsPlayerAlive(Player)
     for I,V in pairs(getgc()) do
         if type(V) == "table" and rawget(V, "isplayeralive") then
