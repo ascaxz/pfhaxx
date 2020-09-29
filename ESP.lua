@@ -1,6 +1,6 @@
 local CumModule = loadstring(game:HttpGet("https://raw.githubusercontent.com/ascaxz/pfhaxx/master/Module.lua", true))()
 
-local camera = game:GetService("Workspace").CurrentCamera
+local camera = game:GetService("Workspace").Camera
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
 local Players = game:GetService("Players")
