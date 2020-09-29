@@ -21,7 +21,7 @@ function CumHaxx:GetCamera()
         end
     end
 end
-function CumHaxx:GetCharacter(Player)
+function CumHaxx:GetBodyPart(Player)
     local E
     for I,V in pairs(getgc()) do
         if type(V) == "table" and rawget(V, "getbodyparts") then
@@ -30,6 +30,13 @@ function CumHaxx:GetCharacter(Player)
         end
     end
     return E(Player).char
+end
+function CumHaxx:GetCharacter()
+    for I,V in pairs(getgc()) do
+        if type(V) == "table" and rawget(V, "jump") then
+            return V
+        end
+    end
 end
 function CumHaxx:IsPlayerAlive(Player)
     for I,V in pairs(getgc()) do
