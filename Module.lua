@@ -22,11 +22,13 @@ function CumHaxx:GetCamera()
     end
 end
 function CumHaxx:GetBodyPart(Player)
+    local Char
     for I,V in pairs(getgc()) do
         if type(V) == "table" and rawget(V, "getbodyparts") then
-            return V.getbodyparts(Player)
+            Char = V.getbodypars(Player)
         end
     end
+    return Char
 end
 function CumHaxx:GetCharacter()
     for I,V in pairs(getgc()) do
